@@ -28,6 +28,10 @@ function tournerGauche() {
 
 }
 
-$('#img1').hover(function() {
-	$(this).animate({ 'left': '+=50px'}, 'slow');
+$('.cmd_left').click(function() {
+	$('#bloc_photos div:first-child').remove().appendTo('#bloc_photos');
+});
+
+$('.cmd_right').click(function() {
+	$('#bloc_photos div:last-child').remove().prependTo('#bloc_photos');
 });
