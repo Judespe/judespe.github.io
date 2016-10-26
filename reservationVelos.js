@@ -24,3 +24,10 @@ function initMap() {
   });
 }
 
+function tournerGauche() {
+
+}
+
+$('#img1').hover(function() {
+	$(this).animate({ 'left': '+=50px'}, 'slow');
+});
