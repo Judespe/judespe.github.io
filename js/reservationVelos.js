@@ -32,13 +32,15 @@ function initMap() {
 		bornes.forEach(function(borne) {
 			var latitude = borne.fields.position[0],
 					longitude = borne.fields.position[1];
-			console.log(latitude + ' - ' + longitude);
 			var marker = new google.maps.Marker({
 				map: map,
 				position: {lat: latitude, lng: longitude}
 			});
+		var markerCluster = new MarkerClusterer(map, marker,{imagePath: 'images'});
 		});
 	}); /* Fin appel API Ville de Paris */
+
+      
 }
 
 
