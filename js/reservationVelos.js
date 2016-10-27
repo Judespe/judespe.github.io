@@ -28,6 +28,7 @@ function initMap() {
 
 		var donnees = JSON.parse(reponse);
 		var	bornes = donnees.records;
+		var markers = [];
 		/* Récupération des coordonnées de chaque borne et création des marqueurs sur la Google Map */
 		bornes.forEach(function(borne) {
 			var latitude = borne.fields.position[0],
@@ -36,8 +37,11 @@ function initMap() {
 				map: map,
 				position: {lat: latitude, lng: longitude}
 			});
-		var markerCluster = new MarkerClusterer(map, marker,{imagePath: 'images'});
+
+			markers.push(marker);
 		});
+
+		var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'images/m'});
 	}); /* Fin appel API Ville de Paris */
 
       
