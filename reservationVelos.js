@@ -30,50 +30,5 @@ $('.cmd_left').click(function() {
 
 $('.cmd_right').click(function() {
 	$('#bloc_photos div:last-child').remove().prependTo('#bloc_photos');
-	/*$('#logo').animate({
-		'text-indent': '0'		
-	}, {
-		step: function() {
-			$(this).css({
-				'width': '20%',
-				'margin-left': '50px',
-				'transform': 'rotateY(-60deg)',
-				'transition': '2s'
-			});
-		},
-		duration: 2000
-	});
-
-	$('#bloc_photos1 div:nth-child(3)').animate({
-		'text-indent' : '0'
-	}, {
-		step: function() {
-			$(this).css({
-				'width': '100%',
-				'margin-left': '+100px',
-				'margin-right': '+100px',
-				'opacity': '0.7',
-				'transform': 'translateX(66.6667%) rotateY(-30deg)',
-				'transition': '2s'
-			});
-		},
-		duration: 2000
-	});
-
-	$('#bloc_photos1 div:nth-child(4)').animate({
-		'text-indent' : '0'
-	}, {
-		step: function() {
-			$(this).css({
-				'margin-left': '-100px',
-				'margin-right': '+60px',
-				'opacity': '0.5',
-				'transform': 'translateX(100%)',
-				'transition': '2s'
-			});
-		},
-		duration: 2000
-	});*/
-
 });
 
