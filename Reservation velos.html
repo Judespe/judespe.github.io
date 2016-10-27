@@ -17,21 +17,32 @@
 		<header class=''>
 
 			<div id="bandeau">
-				<img src="images/logo_velib.png">
+				<img src="images/logo_velib.png" id='logo' class='border'>
 				<div>Cherchez... Trouvez... Réservez !!</div>
 			</div>
 
 			<div id="diaporama" class="">
 				<div><a href="#"><i class="fa fa-angle-left fa-4x command cmd_left" aria-hidden="true"></i></a></div>
-				<div id="bloc_photos" class=''>
-					<div id="img1" class="diaporama_elt"><img src="images/velib2.jpg"></div>
-					<div id="img2" class="diaporama_elt"><img src="images/velib3.jpg"></div>
-					<div id="img3" class="diaporama_elt"><img src="images/velib1.jpg"></div>
-					<div id="img4" class="diaporama_elt"><img src="images/velib3.jpg"></div>
-					<div id="img5" class="diaporama_elt"><img src="images/velib2.jpg"></div>
+				<div id="bloc_photos" class='border'>
+					<div id="img1" class="diaporama_elt position_1_init"><img src="images/velib2.jpg" class=''></div>
+					<div id="img2" class="diaporama_elt position_2_init"><img src="images/velib3.jpg"></div>
+					<div id="img3" class="diaporama_elt position_3_init border"><img src="images/velib1.jpg"></div>
+					<div id="img4" class="diaporama_elt position_4_init"><img src="images/velib3.jpg"></div>
+					<div id="img5" class="diaporama_elt position_5_init"><img src="images/velib2.jpg"></div>
 				</div>
 				<div><a href="#"><i class="fa fa-angle-right fa-4x command cmd_right" aria-hidden="true"></i></a></div>
 			</div>
+
+			<!-- <div id='test_perspective'>
+         <div class="cube pers250">
+          <div class="face front border">1</div>
+          <div class="face back">2</div>
+          <div class="face right">3</div>
+          <div class="face left">4</div>
+          <div class="face top">5</div>
+          <div class="face bottom">6</div>
+       </div>
+     </div> -->
 
 		</header>
 
@@ -52,7 +63,8 @@
 		</div>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM1fhbQ2A0UVLpseVv39x4YBp96bwF4TQ&callback=initMap"></script>
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="http://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&rows=1224&facet=banking&facet=bonus&facet=status&facet=contract_name"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 		<script src="reservationVelos.js"></script>
 
 	</body>
