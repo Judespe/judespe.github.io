@@ -15,6 +15,13 @@ function ajaxGet(url, callback) {
 	req.send(null);
 }
 
+function creerEtiquette(nom, adresse, velosTotal, velosLibres, emplacementsLibres, statut) {
+	var titreEtiquette = document.createElement('h5');
+	titreEtiquette.textContent = 'Station n°' + nom;
+	var infosEtiquette = document.createElement('p');
+	infosEtiquette.textContent = 
+}
+
 var map;
 
 function initMap() {
@@ -27,24 +34,36 @@ function initMap() {
 	ajaxGet('http://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&rows=1224&facet=banking&facet=bonus&facet=status&facet=contract_name', function(reponse) {
 
 		var donnees = JSON.parse(reponse);
-		var	bornes = donnees.records;
+		var	stations = donnees.records;
 		var markers = [];
+
 		/* Récupération des coordonnées de chaque borne et création des marqueurs sur la Google Map */
-		bornes.forEach(function(borne) {
-			var latitude = borne.fields.position[0],
-					longitude = borne.fields.position[1];
+		stations.forEach(function(station) {
+			var latitudeStation = station.fields.position[0],
+					longitudeStation = station.fields.position[1];
 			var marker = new google.maps.Marker({
 				map: map,
-				position: {lat: latitude, lng: longitude}
+				position: {lat: latitudeStation, lng: longitudeStation}
 			});
-
 			markers.push(marker);
+
+			var nomStation = station.fields.name,
+					adresseStation = station.fields.address,
+					velosTotalStation = station.fields.bike_stands,
+					velosLibresStation = station.fields.available_bikes,
+					emplacementsLibresStation = station.fields.available_bike_stands,
+					statutStation = station.fields.status;
+
+			creerEtiquette(nomStation, adresseStation, velosTotalStation, velosLibresStation, emplacementsLibresStation, statutStation);
+			
+			marker.click(function() {
+			});
 		});
 
+		/*----- Utilisation de l'objet markerClusterer (regroupement automatique des marqueurs proches) -----*/
 		var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'images/m'});
 	}); /* Fin appel API Ville de Paris */
 
-      
 }
 
 
