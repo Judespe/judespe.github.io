@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 	<head>
 
@@ -24,22 +24,28 @@
 			<div id="diaporama" class="">
 				<div><a href="#"><i class="fa fa-angle-left fa-4x command cmd_left" aria-hidden="true"></i></a></div>
 				<div id="bloc_photos" class='border'>
-					<div id="img1" class="diaporama_elt position_1_init"><img src="images/velib2.jpg" class=''></div>
-					<div id="img2" class="diaporama_elt position_2_init"><img src="images/velib3.jpg"></div>
-					<div id="img3" class="diaporama_elt position_3_init border"><img src="images/velib1.jpg"></div>
-					<div id="img4" class="diaporama_elt position_4_init"><img src="images/velib3.jpg"></div>
-					<div id="img5" class="diaporama_elt position_5_init"><img src="images/velib2.jpg"></div>
+					<div id="img1" class="diaporama_elt position_1_init"><img src="images/velib2.jpg" class='' alt='slider'></div>
+					<div id="img2" class="diaporama_elt position_2_init"><img src="images/velib3.jpg" alt='slider'></div>
+					<div id="img3" class="diaporama_elt position_3_init border"><img src="images/velib1.jpg" alt='slider'></div>
+					<div id="img4" class="diaporama_elt position_4_init"><img src="images/velib3.jpg" alt='slider'></div>
+					<div id="img5" class="diaporama_elt position_5_init"><img src="images/velib2.jpg" alt='slider'></div>
 				</div>
 				<div><a href="#"><i class="fa fa-angle-right fa-4x command cmd_right" aria-hidden="true"></i></a></div>
 			</div>
 
 		</header>
 
-		<div id="carte_details">
+		<div id="carte_details" class=''>
 
 			<div id="map"></div>
 
-			<div id="details_station"></div>
+			<div id='fieldset_container'>
+				<fieldset id="bloc_infos_station" class=''>
+					<legend>Détails de la station :</legend>
+					<div id='details'></div>
+					<button id='bouton_reserver'>Réserver</button>
+				</fieldset>
+			</div>
 		
 		</div>
 

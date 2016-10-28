@@ -1,6 +1,22 @@
+@font-face {
+    font-family: 'Comicrelief';
+    src: url('fonts/comicrelief/ComicRelief-webfont.eot') format('eot'),
+         url('fonts/comicrelief/ComicRelief-webfont.woff') format('woff'),
+         url('fonts/comicrelief/ComicRelief-webfont.ttf') format('truetype'),
+         url('fonts/comicrelief/ComicRelief-webfont.svg') format('svg');
+}
+
+body {
+	background-color: gainsboro;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+h4, legend, p {
+	font-family: 'Comicrelief', serif;
 }
 
 #bandeau {
@@ -13,7 +29,7 @@ a {
 }
 
 #logo {
-	width: 30%;
+	width: 20%;
 }
 
 #diaporama {
@@ -100,11 +116,51 @@ a {
 	z-index: 1000;
 }
 
+#carte_details {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+}
+
 #map {
 	width: 50%;
 	height: 600px;
-	margin-left: 40px;
-	margin-right: 40px;
+}
+
+#fieldset_container {
+	width: 45%;
+	height: 600px;
+	margin-left: 5%;
+}
+
+#bloc_infos_station {
+	height: 550px;
+	padding-left: 3%;
+	padding-right: 3%;
+	border: 2px solid black;
+	background-color: white;
+	display: none;
+}
+
+#bouton_reserver {
+	position: relative;
+	left: 30px;
+	top: 30px;
+	font-family: 'Comicrelief', serif;
+	font-size: 1em;
+	font-weight: bold;
+	border: 2px solid black;
+	padding: 10px;
+}
+
+.ouverte {
+	color: white;
+	background-color: limegreen;
+}
+
+.fermee {
+	background-color: 
 }
 
 .border {
