@@ -16,7 +16,8 @@ a {
 }
 
 h4, legend, p {
-	font-family: 'Comicrelief', serif;
+	/*font-family: 'Comicrelief', serif;*/
+	font-family: 'PT Sans', sans-serif;
 }
 
 #bandeau {
@@ -116,88 +117,290 @@ h4, legend, p {
 	z-index: 1000;
 }
 
-#carte_details {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
+
+/*----- Section Map & Formulaire -----*/
+
+@media screen and (min-width: 1060px) {
+
+	#bloc_canvas {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#canvas {
+		width: 100%;
+		height: 150px;
+		margin-right: 2%;
+		border: 2px solid black;
+	}
+
+	#bouton_valider {
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+	}
 }
 
-#map {
-	width: 50%;
-	height: 600px;
+@media screen and (min-width: 769px) and (max-width: 1059px)  {
+
+	#bloc_canvas {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+
+	#canvas {
+		width: 100%;
+		height: 150px;
+		border: 2px solid black;
+	}
+
+	#bouton_valider {
+		width: 100%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+		margin-top: 10px;
+	}
 }
 
-#fieldset_container {
-	width: 45%;
-	height: 600px;
-	margin-left: 5%;
+@media screen and (min-width: 769px) {
+
+	#carte_details {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+	}
+
+	#map {
+		width: 50%;
+		height: 600px;
+	}
+
+	#fieldset_container {
+		width: 45%;
+		min-height: 600px;
+		margin-left: 5%;
+	}
+
+	#bloc_infos_station {
+		padding-left: 3%;
+		padding-right: 3%;
+		padding-bottom: 10px;
+		border: 2px solid black;
+		background-color: white;
+		display: none;
+	}
+
+	#bouton_reserver {
+		width: 100%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+	}
+
+	#statut {
+		padding: 10px;
+		text-align: center;
+	}
+
+	.ouverte {
+		color: white;
+		background-color: limegreen;
+	}
+
+	.fermee {
+		background-color: #e21313;
+	}
+
+	.indefini {
+		color: white;
+		background-color: black;
+	}
+
+	#signature {
+		margin-top: 20px;
+		display: none;
+	}
 }
 
-#bloc_infos_station {
-	height: 550px;
-	padding-left: 3%;
-	padding-right: 3%;
-	border: 2px solid black;
-	background-color: white;
-	display: none;
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+	#carte_details {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#map {
+		width: 100%;
+		height: 300px;
+	}
+
+	#fieldset_container {
+		width: 100%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	#bloc_infos_station {
+		padding-left: 3%;
+		padding-right: 3%;
+		padding-bottom: 10px;
+		border: 2px solid black;
+		background-color: white;
+		display: none;
+	}
+
+	#bouton_reserver {
+		width: 100%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+	}
+
+	#statut {
+		padding: 10px;
+		text-align: center;
+	}
+
+	.ouverte {
+		color: white;
+		background-color: limegreen;
+	}
+
+	.fermee {
+		background-color: #e21313;
+	}
+
+	.indefini {
+		color: white;
+		background-color: black;
+	}
+
+	#signature {
+		margin-top: 20px;
+		display: none;
+	}
+
+	#bloc_canvas {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#canvas {
+		width: 100%;
+		height: 150px;
+		margin-right: 2%;
+		border: 2px solid black;
+	}
+
+	#bouton_valider {
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+	}
 }
 
-#bouton_reserver {
-	position: relative;
-	left: 30px;
-	top: 0px;
-	font-family: 'Comicrelief', serif;
-	font-size: 1em;
-	font-weight: bold;
-	border: 2px solid black;
-	padding: 10px;
-}
+@media screen and (max-width: 480px) {
 
-#statut {
-	padding: 5px 10px 5px 10px;
-}
+	#carte_details {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-.ouverte {
-	color: white;
-	background-color: limegreen;
-}
+	#map {
+		width: 100%;
+		height: 300px;
+	}
 
-.fermee {
-	background-color: #e21313;
-}
+	#fieldset_container {
+		width: 100%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 
-.indefini {
-	color: white;
-	background-color: black;
-}
+	#bloc_infos_station {
+		padding-left: 3%;
+		padding-right: 3%;
+		padding-bottom: 10px;
+		border: 2px solid black;
+		background-color: white;
+		display: none;
+	}
 
-#signature {
-	width: 100%;
-	margin-top: 20px;
-	display: none;
-}
+	#bouton_reserver {
+		width: 100%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+	}
 
-#bloc_canvas {
-	width: 100%;
-	display: flex;
-	align-items: center;
-}
+	#statut {
+		padding: 10px;
+		text-align: center;
+	}
 
-#canvas {
-	width: 70%;
-	height: 150px;
-	margin-left: 2%;
-	margin-right: 2%;
-	border: 2px solid black;
-}
+	.ouverte {
+		color: white;
+		background-color: limegreen;
+	}
 
-#bouton_valider {
-	font-family: 'Comicrelief', serif;
-	font-size: 1em;
-	font-weight: bold;
-	border: 2px solid black;
-	padding: 10px;
+	.fermee {
+		background-color: #e21313;
+	}
+
+	.indefini {
+		color: white;
+		background-color: black;
+	}
+
+	#signature {
+		margin-top: 20px;
+		display: none;
+	}
+
+	#bloc_canvas {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	#canvas {
+		width: 100%;
+		height: 150px;
+		border: 2px solid black;
+	}
+
+	#bouton_valider {
+		width: 100%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		border: 2px solid black;
+		padding: 10px;
+		margin-top: 10px;
+	}
 }
 
 .border {
