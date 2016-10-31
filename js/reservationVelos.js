@@ -64,37 +64,52 @@
 						statutStation = station.fields.status,
 						statutStationFr = '';
 
-						if (statutStation === "OPENg") {
+						if (statutStation === "OPEN") {
 							statutStationFr = 'Ouverte';
 						} else if (statutStation === "CLOSED") {
 							statutStationFr = 'Fermée';
 						} else {
 							statutStationFr = 'Non Disponible';
 						}
-
+				/*----- Affichage formulaire quand clic sur un marker -----*/
 				marker.addListener('click', function() {
 					$('#details').html('');
+					$('#signature').fadeOut();
 					var titreEtiquette = document.createElement('h4');
 					titreEtiquette.textContent = 'Station n°' + nomStation;
 					
 					var infosAdresseEtiquette = document.createElement('p');
-					infosAdresseEtiquette.innerHTML = 'Adresse : ' + adresseStation + '<br><span id="statut">Station ' + statutStationFr + '</span>'; 
+					infosAdresseEtiquette.innerHTML = 'Adresse : ' + adresseStation;
+
+					var statutStationEtiquette = document.createElement('p');
+					statutStationEtiquette.id = 'statut';
 
 					if (statutStation === "OPEN") {
-							$('#statut').addClass('ouverte');
-						} else if (statutStation === "CLOSED") {
-							$('#statut').addClass('fermee');
-						} else {
-							$('#statut').addClass('inconnu');
-							$('#bouton_reserver').attr('disabled');
-						}
+						statutStationEtiquette.innerHTML = 'Station ' + statutStationFr;
+						statutStationEtiquette.className = 'ouverte';
+						$('#bouton_reserver').removeAttr('disabled'); 
+					} else if (statutStation === "CLOSED") {
+						statutStationEtiquette.innerHTML = 'Station ' + statutStationFr;
+						statutStationEtiquette.className = 'fermee'; 
+						$('#bouton_reserver').attr('disabled', 'disabled');
+					} else {
+						statutStationEtiquette.innerHTML = 'Station ' + statutStationFr + '</span>';
+						statutStationEtiquette.className = 'indefini'; 
+						$('#bouton_reserver').prop('disabled');
+					}
 
 					var infosVelos = document.createElement('p');
 					infosVelos.innerHTML = 'Capacité de la station : ' + velosTotalStation + '<br>Nombre de vélos libres : ' + velosLibresStation + '<br>Nombre d\'emplacements libres : ' + emplacementsLibresStation;
 
-					$('#details').append(titreEtiquette, infosAdresseEtiquette, infosVelos);
+					$('#details').append(titreEtiquette, infosAdresseEtiquette, statutStationEtiquette, infosVelos);
 
 					$('#bloc_infos_station').fadeIn();
+				});
+
+			});
+
+				$('#bouton_reserver:enabled').click(function() {
+					$('#signature').fadeIn();
 				});
 
 				/*----- Fermeture formulaire de réservation si clic en dehors du bloc "carte-forulaire" -----*/
@@ -102,10 +117,9 @@
 					var carteDetails = $('#carte_details');
 					if (!$(e.target).is(carteDetails) && !$.contains(carteDetails[0], e.target)) {
 						$('#bloc_infos_station').fadeOut();
+						$('#signature').fadeOut();
 					}
 				});
-
-			});
 
 			/*----- Utilisation de l'objet markerClusterer (regroupement automatique des marqueurs proches) -----*/
 			var markerCluster = new MarkerClusterer(map, markers,{imagePath: 'images/m'});

@@ -44,13 +44,17 @@
 					<legend>Détails de la station :</legend>
 					<div id='details'></div>
 					<button id='bouton_reserver'>Réserver</button>
+					
+					<div id="signature" class=''>
+						<p>Confirmez la réservation en signant dans le cadre ci-dessous, puis validez.</p>
+						<div id="bloc_canvas">
+							<canvas id="canvas"></canvas>
+							<button id="bouton_valider">Valider</button>
+						</div>
+					</div>
 				</fieldset>
 			</div>
 		
-		</div>
-
-		<div id="signature">
-			<canvas id="canvas"></canvas>
 		</div>
 
 		<div id="resume">
@@ -58,10 +62,10 @@
 		</div>
 
     <script src="js/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM1fhbQ2A0UVLpseVv39x4YBp96bwF4TQ&callback=initMap"></script>
-    <!--<script src="http://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&rows=1224&facet=banking&facet=bonus&facet=status&facet=contract_name"></script>-->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
 		<script src="js/reservationVelos.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM1fhbQ2A0UVLpseVv39x4YBp96bwF4TQ&callback=initMap" async defer></script>
+    <!--<script src="http://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&rows=1224&facet=banking&facet=bonus&facet=status&facet=contract_name"></script>-->
 
 	</body>
 

@@ -146,12 +146,16 @@ h4, legend, p {
 #bouton_reserver {
 	position: relative;
 	left: 30px;
-	top: 30px;
+	top: 0px;
 	font-family: 'Comicrelief', serif;
 	font-size: 1em;
 	font-weight: bold;
 	border: 2px solid black;
 	padding: 10px;
+}
+
+#statut {
+	padding: 5px 10px 5px 10px;
 }
 
 .ouverte {
@@ -160,7 +164,40 @@ h4, legend, p {
 }
 
 .fermee {
-	background-color: 
+	background-color: #e21313;
+}
+
+.indefini {
+	color: white;
+	background-color: black;
+}
+
+#signature {
+	width: 100%;
+	margin-top: 20px;
+	display: none;
+}
+
+#bloc_canvas {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#canvas {
+	width: 70%;
+	height: 150px;
+	margin-left: 2%;
+	margin-right: 2%;
+	border: 2px solid black;
+}
+
+#bouton_valider {
+	font-family: 'Comicrelief', serif;
+	font-size: 1em;
+	font-weight: bold;
+	border: 2px solid black;
+	padding: 10px;
 }
 
 .border {
