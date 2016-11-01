@@ -41,20 +41,23 @@
 
 			<div id="map"></div>
 
-			<div id='fieldset_container'>
-				<fieldset id="bloc_infos_station" class=''>
-					<legend>Détails de la station :</legend>
+			<div id='container'>
+				<div id="bloc_infos_station" class=''>
+					<div id='legend'>Détails de la station :</div>
 					<div id='details'></div>
 					<button id='bouton_reserver'>Réserver</button>
 					
 					<div id="signature" class=''>
 						<p>Confirmez la réservation en signant dans le cadre ci-dessous, puis validez.</p>
 						<div id="bloc_canvas">
-							<canvas id="canvas"></canvas>
+							<div id="bloc_canvas_reset">
+								<canvas id="canvas"></canvas>
+								<button id="reset">Reset</button>
+							</div>
 							<button id="bouton_valider">Valider</button>
 						</div>
 					</div>
-				</fieldset>
+				</div>
 			</div>
 		
 		</div>
