@@ -1,5 +1,21 @@
 //$(function() {
 
+	////////////////////////////////////////
+	/////////// Gestion diaporama //////////
+	////////////////////////////////////////
+
+	$('.cmd_left').click(function() {
+		$('#bloc_photos div:first-child').remove().appendTo('#bloc_photos');
+	});
+
+	$('.cmd_right').click(function() {
+		$('#bloc_photos div:last-child').remove().prependTo('#bloc_photos');
+	});
+
+	//////////////////////////////////////////////////////
+	/////////// Gestion Google Map + Formulaire //////////
+	//////////////////////////////////////////////////////
+
 	function ajaxGet(url, callback) {
 		var req = new XMLHttpRequest();
 		req.open('GET', url);
@@ -116,7 +132,10 @@
 
 	} // Fin de la fontion initMap
 
-/////////// Début Gestion canvas //////////////
+/////////////////////////////////////////
+/////////// Gestion canvas //////////////
+/////////////////////////////////////////
+
 $(function() {
 
 	// Variables canvas
@@ -152,8 +171,6 @@ $(function() {
 
 	// Effacement du canvas
 	function clearCanvas() {
-		console.log(canvas.width());
-		console.log(canvas.height());
 		context.clearRect(0, 0, canvas.width(), canvas.height());
 	}
 
@@ -190,32 +207,24 @@ $(function() {
 	});
 
 	// Redimensionnement canvas selon la taille de l'écran (par défaut width:300px, height:150px)
-	var widthWindow = $(window).width();
-
-	$(window).resize(function() {
-		if (widthWindow >= '1060px') {
-			canvas.attr('width', '300px').attr('height', '150px');
-		} else if ((widthWindow >= '769px') && (widthWindow <= '1059px')) {
-			canvas.attr('width', '275px').attr('height', '150px');
-		} else if ((widthWindow >= '481px') && (widthWindow <= '768px')) {
-			canvas.attr('width', '300px').attr('height', '150px');
-		} else if (widthWindow <= '480px') {
-			canvas.attr('width', '200px').attr('height', '150px');
+	function checkWidthWindow() {
+		if ($(window).width() >= '1043') {
+			canvas.attr('width', '300').attr('height', '150');
+		} else if (($(window).width() >= '752') && ($(window).width() <= '1042')) {
+			canvas.attr('width', '275').attr('height', '150');
+		} else if (($(window).width() >= '464') && ($(window).width() <= '751')) {
+			canvas.attr('width', '300').attr('height', '150');
+		} else if ($(window).width() <= '463') {
+			canvas.attr('width', '200').attr('height', '150');
 		}
-	});
+	}
 
+	$(window).resize(checkWidthWindow);
+
+// Dimensionnement initial canvas
+checkWidthWindow();
 
 //////////////// Fin Gestion canvas //////////////////
 
-
-	// Commandes souris diaporama 
-
-	$('.cmd_left').click(function() {
-		$('#bloc_photos div:first-child').remove().appendTo('#bloc_photos');
-	});
-
-	$('.cmd_right').click(function() {
-		$('#bloc_photos div:last-child').remove().prependTo('#bloc_photos');
-	});
 
 });

@@ -33,6 +33,10 @@ h4, legend, p {
 	width: 20%;
 }
 
+/*///////////////////////////////
+/////// Section Diaporama ///////
+///////////////////////////////*/
+
 #diaporama {
 	width: 90%;
 	height: 400px;
@@ -117,8 +121,9 @@ h4, legend, p {
 	z-index: 1000;
 }
 
-
-/*----- Section Map & Formulaire -----*/
+/*//////////////////////////////////////
+/////// Section Map & Formulaire ///////
+//////////////////////////////////////*/
 
 @media screen and (min-width: 1060px) {
 
@@ -136,9 +141,8 @@ h4, legend, p {
 	}
 
 	#canvas {
-		/*width: 300px;
-		height: 150px;*/
 		border: 2px solid black;
+		cursor: default;
 	}
 
 	#bouton_valider {
@@ -166,9 +170,8 @@ h4, legend, p {
 	}
 
 	#canvas {
-	/*	width: 275px;
-		height: 150px;*/
 		border: 2px solid black;
+		cursor: default;
 	}
 
 	#bouton_valider {
@@ -271,9 +274,8 @@ h4, legend, p {
 	}
 
 	#canvas {
-		/*width: 300px;
-		height: 150px;*/
 		border: 2px solid black;
+		cursor: default;
 	}
 
 	#bouton_valider {
@@ -334,9 +336,8 @@ h4, legend, p {
 	}
 
 	#canvas {
-		/*width: 200px;
-		height: 150px;*/
 		border: 2px solid black;
+		cursor: default;
 	}
 
 	#bouton_valider {
@@ -379,7 +380,26 @@ h4, legend, p {
 	border: 1px solid limegreen;
 }
 
+/*//////////////////////////////////////
+//////////// Section Résumé ////////////
+//////////////////////////////////////*/
+
+#resume {
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 2px solid black;
+	background-color: white;
+	font-family: 'PT Sans', sans-serif;
+	display: none;
+}
+
+#titre_resume {
+	text-decoration: underline;
+}
+
 .border {
 	border: 1px solid black;
 }
-
