@@ -226,5 +226,9 @@ checkWidthWindow();
 
 //////////////// Fin Gestion canvas //////////////////
 
+$('#bouton_valider').click(function(){
+	$('#nom_station').text(nomStation);
+	$('#resume').fadeIn();
+})
 
 });
