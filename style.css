@@ -351,6 +351,15 @@ h4, legend, p {
 	}
 }
 
+#legend {
+	font-family: 'PT Sans', sans-serif;
+	background-color: white;
+	width: 145px;
+	margin-top: -10px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
 #statut {
 	padding: 10px;
 	text-align: center;
@@ -375,9 +384,25 @@ h4, legend, p {
 	display: none;
 }
 
+#blank {
+	display: none;
+}
+
 #reset {
 	color: black;
 	border: 1px solid limegreen;
+}
+
+#erreur {
+	display: none;
+	font-family: 'PT Sans', sans-serif;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.alert {
+	color: red;
+	font-weight: bold;
 }
 
 /*//////////////////////////////////////

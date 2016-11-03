@@ -79,8 +79,9 @@
 				marker.addListener('click', function() {
 					$('#details').html('');
 					$('#signature').fadeOut();
+					$('#erreur').fadeOut();
 					var titreEtiquette = document.createElement('h4');
-					titreEtiquette.textContent = 'Station n°' + nomStation;
+					titreEtiquette.innerHTML = 'Station n°<span id="nomStation">' + nomStation + '</span>';
 					
 					var infosAdresseEtiquette = document.createElement('p');
 					infosAdresseEtiquette.innerHTML = 'Adresse : ' + adresseStation;
@@ -98,8 +99,8 @@
 						$('#bouton_reserver').attr('disabled', 'disabled');
 					} else {
 						statutStationEtiquette.innerHTML = 'Station ' + statutStationFr + '</span>';
-						statutStationEtiquette.className = 'indefini'; 
-						$('#bouton_reserver').prop('disabled');
+						statutStationEtiquette.className = 'indefini';
+						$('#bouton_reserver').attr('disabled', 'disabled');
 					}
 
 					var infosVelos = document.createElement('p');
@@ -115,6 +116,10 @@
 			// Ouverture du canvas au clic sur le bouton Réserver (si activé)
 			$('#bouton_reserver:enabled').click(function() {
 				$('#signature').fadeIn();
+
+				var offsetSignature = $('#signature').offset().top;
+				$('html, body').animate({scrollTop: offsetSignature}, 1000);
+				return false;
 			});
 
 			// Fermeture formulaire de réservation si clic en dehors du bloc "carte-forulaire"
@@ -142,6 +147,7 @@ $(function() {
 	var painting = false,
 			started = false,
 			canvas = $('#canvas'),
+			canvasAll = $('canvas'),
 			cursorX, cursorY, 
 			width_brush = 1,
 			restoreCanvasArray = [],
@@ -209,26 +215,73 @@ $(function() {
 	// Redimensionnement canvas selon la taille de l'écran (par défaut width:300px, height:150px)
 	function checkWidthWindow() {
 		if ($(window).width() >= '1043') {
-			canvas.attr('width', '300').attr('height', '150');
+			canvasAll.attr('width', '300').attr('height', '150');
 		} else if (($(window).width() >= '752') && ($(window).width() <= '1042')) {
-			canvas.attr('width', '275').attr('height', '150');
+			canvasAll.attr('width', '275').attr('height', '150');
 		} else if (($(window).width() >= '464') && ($(window).width() <= '751')) {
-			canvas.attr('width', '300').attr('height', '150');
+			canvasAll.attr('width', '300').attr('height', '150');
 		} else if ($(window).width() <= '463') {
-			canvas.attr('width', '200').attr('height', '150');
+			canvasAll.attr('width', '200').attr('height', '150');
 		}
 	}
 
 	$(window).resize(checkWidthWindow);
 
+	// Vérification présence signature dans le canvas pour valider la réservation
+	var canvasJS = document.getElementById('canvas'),
+			blankCanvas = document.getElementById('blank'),
+			nomStationRecup = $('#nomStation').text();
+
+	var decompte;
+	function diminuerCompteur() {
+		var minutesElt = document.getElementById('minutes'),
+				secondesElt = document.getElementById('secondes'),
+				minutes = Number(minutesElt.textContent),
+				secondes = Number(secondesElt.textContent);
+
+		if (secondes > 0) {
+			secondesElt.textContent = secondes - 1;
+		} else {
+			if (minutes > 0) {
+				minutesElt.textContent = minutes - 1;
+				secondesElt.textContent = '59';
+			} else if (minutes === 0) {
+				$('#message_reservation').hide().html('<span class="alert">La durée de 20 minutes est écoulée, votre réservation a été annulée</span>').fadeIn();
+				clearInterval(decompte);
+			}
+		}
+	}
+
+	$('#bouton_valider').click(function() {
+		
+		// Affichage message d'erreur si pas de signature dans le canvas
+		if (canvasJS.toDataURL() == blankCanvas.toDataURL()) {
+			$('#erreur').fadeIn().delay(5000).fadeOut();
+		} 
+		// Validation de la réservation, affichage de la réservation dans la section "résumé" et lancement du timer de 20 minutes
+		else {
+			clearInterval(decompte);
+			var nomStationRecup = $('#nomStation').text();
+
+			$('#message_reservation').hide();
+			$('#signature').fadeOut();
+			clearCanvas();
+			$('#nom_station').text(nomStationRecup);
+			$('#minutes').text('20');
+			$('#secondes').text('0');
+			$('#message_reservation').fadeIn();
+			$('#resume').fadeIn();
+			decompte = setInterval(diminuerCompteur, 1000);
+
+			var offsetResume = $('#resume').offset().top;
+			$('html, body').animate({scrollTop: offsetResume}, 1000);
+			return false;
+		}
+	});
+
 // Dimensionnement initial canvas
 checkWidthWindow();
 
 //////////////// Fin Gestion canvas //////////////////
-
-$('#bouton_valider').click(function(){
-	$('#nom_station').text(nomStation);
-	$('#resume').fadeIn();
-})
 
 });

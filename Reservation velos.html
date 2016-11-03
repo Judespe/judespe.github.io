@@ -52,11 +52,14 @@
 						<div id="bloc_canvas">
 							<div id="bloc_canvas_reset">
 								<canvas id="canvas"></canvas>
+								<canvas id='blank'></canvas>
 								<button id="reset">Reset</button>
 							</div>
 							<button id="bouton_valider">Valider</button>
 						</div>
 					</div> <!-- #signature -->
+
+					<div id='erreur' class='alert'>Erreur : vous n'avez pas signé le formulaire. Veuillez recommencer svp.</div>
 
 				</div> <!-- #bloc_infos_station -->
 			</div> <!-- #container -->
@@ -65,7 +68,7 @@
 
 		<div id="resume">
 			<h3 id="titre_resume">Réservations en cours :</h3>
-			<p>1 vélo réservé à la station n°<span id="nom_station"></span> pendant encore <span id="timer"></span></p>
+			<p id='message_reservation'>1 vélo réservé à la station n°<span id="nom_station"></span> pendant encore <span id="minutes"></span> minutes et <span id="secondes"></span> secondes</p>
 		</div> <!-- #resume -->
 
     <script src="js/markerclusterer.js"></script>
