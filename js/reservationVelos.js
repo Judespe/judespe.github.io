@@ -143,7 +143,17 @@
 
 $(function() {
 
-	// Variables canvas
+	// Chargement des réservations en cours avec sessionStorage
+	function chargerReservation() {
+	  if (sessionStorage.getItem('reservation')) {
+	  	document.getElementById('storage_data').innerHTML = sessionStorage.getItem('reservation');
+	  	$('#resume').fadeIn();
+	  	$('#message_reservation').hide();
+	  }
+	}
+	chargerReservation();
+
+// Variables canvas
 	var painting = false,
 			started = false,
 			canvas = $('#canvas'),
@@ -263,6 +273,7 @@ $(function() {
 			clearInterval(decompte);
 			var nomStationRecup = $('#nomStation').text();
 
+			$('#storage_data').hide();
 			$('#message_reservation').hide();
 			$('#signature').fadeOut();
 			clearCanvas();
@@ -272,6 +283,9 @@ $(function() {
 			$('#message_reservation').fadeIn();
 			$('#resume').fadeIn();
 			decompte = setInterval(diminuerCompteur, 1000);
+
+			var donneesReservation = document.getElementById('message_reservation').textContent;
+			sessionStorage.setItem('reservation', donneesReservation);
 
 			var offsetResume = $('#resume').offset().top;
 			$('html, body').animate({scrollTop: offsetResume}, 1000);
