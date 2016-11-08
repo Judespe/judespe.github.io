@@ -31,13 +31,37 @@ h4, legend, p {
 
 #logo {
 	width: 10%;
+	min-width: 80px;
 }
 
-#slogan {
-	width: 70%;
-	font-family: 'PT Sans', sans-serif;
-	font-size: 3em;
-	text-align: -webkit-center;
+@media screen and (min-width: 769px) {
+
+	#slogan {
+		width: 70%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 3.2vw;
+		text-align: -webkit-center;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+	#slogan {
+		width: 70%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1.6em;
+		text-align: -webkit-center;
+	}
+}
+
+@media screen and (max-width: 480px) {
+
+	#slogan {
+		width: 70%;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1.2em;
+		text-align: -webkit-center;
+	}
 }
 
 /*///////////////////////////////
@@ -49,7 +73,7 @@ h4, legend, p {
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-bottom: 80px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -61,22 +85,60 @@ h4, legend, p {
 
 #bloc_photos > div {
 	position: relative;
-}
-
-#bloc_photos > div:not(:first-child) {
 	display: none;
 }
 
-.description_photo {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	text-align: center;
-	font-family: 'PT Sans', sans-serif;
-	font-size: 1.2em;
-	background-color: rgba(255, 255, 255, 0.7);
+@media screen and (min-width: 769px) {
+
+	.description_photo {
+		position: absolute;
+		bottom: 0;
+		width: 98%;
+		padding-left: 1%;
+		padding-right: 1%;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		text-align: center;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 2vw;
+		background-color: rgba(255, 255, 255, 0.7);
+		display: none;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+	.description_photo {
+		position: absolute;
+		bottom: 0;
+		width: 98%;
+		padding-left: 1%;
+		padding-right: 1%;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		text-align: center;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		background-color: rgba(255, 255, 255, 0.7);
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+
+	.description_photo {
+		width: 98%;
+		padding-left: 1%;
+		padding-right: 1%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-top: 5px;
+		text-align: center;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 1em;
+		background-color: rgba(255, 255, 255, 0.7);
+		display: none;
+	}
 }
 
 img {
@@ -84,87 +146,6 @@ img {
 	margin-bottom: 0px;
 	vertical-align: middle;
 }
-
-.active {
-}
-
-/*#diaporama {
-	width: 90%;
-	height: 400px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#bloc_photos {
-	display: inline-flex;
-	align-items: center;
-	perspective: 600px;
-	transition: 2s;
-	z-index: 2;
-}
-
-.diaporama_elt {
-	max-width: 500px;
-	max-height: 300px;
-}
-
-.diaporama_elt img {
-	width: 100%;
-}
-
-#bloc_photos div:first-child {
-	transform: rotateY(30deg);
-	opacity: 0.5;
-	margin-right: -150px;
-	margin-left: 10px;
-}
-
-#bloc_photos div:nth-child(2) {
-	transform: rotateY(30deg);
-	opacity: 0.7;
-	margin-right: -50px;
-	margin-left: -50px;
-}
-
-#bloc_photos div:nth-child(3) {
-	margin-left: -150px;
-	margin-right: -150px;
-	opacity: 1;
-	width: 150%;
-	z-index: 10;
-}
-
-#bloc_photos div:nth-child(4) {
-	transform: rotateY(-30deg);
-	opacity: 0.7;
-	margin-left: -50px;
-	margin-right: -50px;
-}
-
-#bloc_photos div:nth-child(5) {
-	transform: rotateY(-30deg);
-	opacity: 0.5;
-	margin-left: -150px;
-	margin-right: 10px;
-	z-index: 2;
-}
-
-.cmd_left {
-	margin-left: 0px;
-	margin-right: 50px;
-	z-index: 1000;
-}
-
-.cmd_right {
-	margin-right: 0px;
-	margin-left: 50px;
-	z-index: 1000;
-}*/
 
 /*//////////////////////////////////////
 /////// Section Map & Formulaire ///////

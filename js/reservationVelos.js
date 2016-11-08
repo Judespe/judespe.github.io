@@ -129,12 +129,57 @@ function initMap() {
 	/////////// Gestion diaporama //////////
 	////////////////////////////////////////
 
+	var firstImage = $('.firstImage'),
+			lastImage = $('.lastImage');
+
+	firstImage.fadeIn(400, function() {
+		$(this).find('div').fadeIn(1000);
+	});
+
+	function decalerGauche() {
+		var imageActive = $('.active'),
+				prevImage = imageActive.prev(),
+				nextImage = imageActive.next();
+
+			imageActive.fadeOut(400, function(){
+				$(this).removeClass('active');
+				if (imageActive.is(firstImage)) {
+					lastImage.addClass('active').fadeIn(400, function() {
+						$(this).find('div').fadeIn(1000);
+					});
+				} else {
+					prevImage.addClass('active').fadeIn(400, function() {
+						$(this).find('div').fadeIn(1000);
+					});		
+				}
+			});
+	}
+
+	function decalerDroite() {
+		var imageActive = $('.active'),
+				prevImage = imageActive.prev(),
+				nextImage = imageActive.next();
+
+			imageActive.fadeOut(400, function(){
+				$(this).removeClass('active');
+				if (imageActive.is(lastImage)) {
+					firstImage.addClass('active').fadeIn(400, function() {
+						$(this).find('div').fadeIn(1000);
+					});
+				} else {
+					nextImage.addClass('active').fadeIn(400, function() {
+						$(this).find('div').fadeIn(1000);
+					});
+				}
+			});
+	}
+
 	$('.cmd_left').click(function() {
-		$('#bloc_photos div:first-child').remove().appendTo('#bloc_photos');
+		decalerGauche();
 	});
 
 	$('.cmd_right').click(function() {
-		$('#bloc_photos div:last-child').remove().prependTo('#bloc_photos');
+		decalerDroite();
 	});
 
 	/////////////////////////////////////////
