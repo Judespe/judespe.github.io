@@ -194,6 +194,7 @@ function initMap() {
 
 	  	// Affectation du temps restant dans le champ #storage_data (si temps inférieur à 20 minutes)
 	  	$('#nom_station').html(sessionStorage.getItem('station'));
+	  	$('#nom_reservation').html(sessionStorage.getItem('nom'));
 	  	$('#minutes').html(minutesLeft);
 	  	$('#secondes').html(secondesLeft);
 	  	$('#resume').fadeIn();
@@ -273,6 +274,9 @@ function initMap() {
 
 	// Redimensionnement canvas selon la taille de l'écran (par défaut width:300px, height:150px)
 	function checkWidthWindow() {
+		var blocPhotosLargeur = $('#bloc_photos').width();
+		$('.diaporama_elt').width(blocPhotosLargeur);
+
 		if ($(window).width() >= '1043') {
 			canvasAll.attr('width', '300').attr('height', '150');
 		} else if (($(window).width() >= '752') && ($(window).width() <= '1042')) {
@@ -292,9 +296,12 @@ function initMap() {
 			nomStationRecup = $('#nomStation').text();
 
 	$('#bouton_valider').click(function() {
+
+			var nomReservation = $('#nom').val(),
+					nomReservationMaj = nomReservation.toUpperCase();
 		
-		// Affichage message d'erreur si pas de signature dans le canvas
-		if (canvasJS.toDataURL() == blankCanvas.toDataURL()) {
+		// Affichage message d'erreur si pas de nom renseigné et pas de signature dans le canvas
+		if ((canvasJS.toDataURL() == blankCanvas.toDataURL()) || !(nomReservation)) {
 			$('#erreur').fadeIn().delay(5000).fadeOut();
 		} 
 		// Validation de la réservation, affichage de la réservation dans la section "résumé" et lancement du timer de 20 minutes
@@ -303,7 +310,11 @@ function initMap() {
 			var nomStationRecup = $('#nomStation').text(),
 					init;
 
-			$('#storage_data').hide();
+			console.log(nomReservationMaj);
+			sessionStorage.setItem('nom', nomReservationMaj);
+			$('#nom').val('');
+
+			//$('#storage_data').hide();
 			$('#message_reservation').hide();
 			$('#erreur').hide();
 			$('#signature').fadeOut();
@@ -311,12 +322,14 @@ function initMap() {
 			$('#nom_station').text(nomStationRecup);
 			$('#minutes').text('20');
 			$('#secondes').text('0');
+			$('#nom_reservation').text(nomReservationMaj);
 			$('#message_reservation').fadeIn();
 			$('#resume').fadeIn();
 			decompte = setInterval(diminuerCompteur, 1000);
 
 			var donneesReservation = document.getElementById('message_reservation').innerHTML;
 			sessionStorage.setItem('reservation', donneesReservation);
+
 			var stationReservation = $('#nom_station').text();
 			sessionStorage.setItem('station', stationReservation);
 

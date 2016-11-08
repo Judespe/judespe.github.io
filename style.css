@@ -25,12 +25,19 @@ h4, legend, p {
 	padding-left: 5%;
 	padding-right: 5%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 }
 
 #logo {
-	width: 20%;
+	width: 10%;
+}
+
+#slogan {
+	width: 70%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 3em;
+	text-align: -webkit-center;
 }
 
 /*///////////////////////////////
@@ -38,6 +45,50 @@ h4, legend, p {
 ///////////////////////////////*/
 
 #diaporama {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#bloc_photos {
+	width: 75%;
+}
+
+#bloc_photos > div {
+	position: relative;
+}
+
+#bloc_photos > div:not(:first-child) {
+	display: none;
+}
+
+.description_photo {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 1.2em;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+img {
+	width: auto;
+	margin-bottom: 0px;
+	vertical-align: middle;
+}
+
+.active {
+}
+
+/*#diaporama {
 	width: 90%;
 	height: 400px;
 	margin-top: 20px;
@@ -71,7 +122,6 @@ h4, legend, p {
 	opacity: 0.5;
 	margin-right: -150px;
 	margin-left: 10px;
-	/*transition: 2s;*/
 }
 
 #bloc_photos div:nth-child(2) {
@@ -79,7 +129,6 @@ h4, legend, p {
 	opacity: 0.7;
 	margin-right: -50px;
 	margin-left: -50px;
-	/*transition: 2s;*/
 }
 
 #bloc_photos div:nth-child(3) {
@@ -87,8 +136,6 @@ h4, legend, p {
 	margin-right: -150px;
 	opacity: 1;
 	width: 150%;
-	/*transform: scale(1.5);*/
-	/*transition: 2s;*/
 	z-index: 10;
 }
 
@@ -97,7 +144,6 @@ h4, legend, p {
 	opacity: 0.7;
 	margin-left: -50px;
 	margin-right: -50px;
-	/*transition: 2s;*/
 }
 
 #bloc_photos div:nth-child(5) {
@@ -106,7 +152,6 @@ h4, legend, p {
 	margin-left: -150px;
 	margin-right: 10px;
 	z-index: 2;
-	/*transition: 2s;*/
 }
 
 .cmd_left {
@@ -119,7 +164,7 @@ h4, legend, p {
 	margin-right: 0px;
 	margin-left: 50px;
 	z-index: 1000;
-}
+}*/
 
 /*//////////////////////////////////////
 /////// Section Map & Formulaire ///////
@@ -377,6 +422,16 @@ h4, legend, p {
 .indefini {
 	color: white;
 	background-color: black;
+}
+
+input {
+	width: 89%;
+	border: 2px black solid;
+	margin-bottom: 10px;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 #signature {

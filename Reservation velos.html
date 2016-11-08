@@ -19,18 +19,37 @@
 		<header class=''>
 
 			<div id="bandeau">
-				<img src="images/logo_velib.png" id='logo' class='border'>
-				<div>Cherchez... Trouvez... Réservez !!</div>
+				<img src="images/logo_myvelib.png" id='logo' class=''>
+				<div id="slogan">Besoin d'un vélo ? Cherchez... Trouvez... Réservez !!!</div>
 			</div>
 
 			<div id="diaporama" class="">
 				<div><a href="#"><i class="fa fa-angle-left fa-4x command cmd_left" aria-hidden="true"></i></a></div>
-				<div id="bloc_photos" class='border'>
-					<div id="img1" class="diaporama_elt position_1_init"><img src="images/velib2.jpg" class='' alt='slider'></div>
-					<div id="img2" class="diaporama_elt position_2_init"><img src="images/velib3.jpg" alt='slider'></div>
-					<div id="img3" class="diaporama_elt position_3_init border"><img src="images/velib1.jpg" alt='slider'></div>
-					<div id="img4" class="diaporama_elt position_4_init"><img src="images/velib3.jpg" alt='slider'></div>
-					<div id="img5" class="diaporama_elt position_5_init"><img src="images/velib2.jpg" alt='slider'></div>
+				<div id="bloc_photos" class=''>
+					<div id="img1" class="active">
+						<img src="images/velib1.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Besoin d'aller d'un point A à un point B ?</div>
+					</div>
+					<div id="img2" class="">
+						<img src="images/velib2.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Et par un si beau temps, rien de tel que de prendre le vélo</div>
+					</div>
+					<div id="img3" class="">
+						<img src="images/velib3.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Mais plus de vélos quand vous vous rendez à votre station Vélib...</div>
+					</div>
+					<div id="img4" class="">
+						<img src="images/velib4.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Pour éviter cela : rien de plus simple ! Avec Myvelib.fr, réservez un vélo avant même de partir de chez vous</div>
+					</div>
+					<div id="img5" class="">
+						<img src="images/velib5.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Et récupérez votre vélo dans votre station préférée !!</div>
+					</div>
+					<div id="img6" class="">
+						<img src="images/velib6.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Bonne balade ! =)</div>
+					</div>
 				</div>
 				<div><a href="#"><i class="fa fa-angle-right fa-4x command cmd_right" aria-hidden="true"></i></a></div>
 			</div>
@@ -48,9 +67,10 @@
 					<button id='bouton_reserver'>Réserver</button>
 					
 					<div id="signature" class=''>
-						<p>Confirmez la réservation en signant dans le cadre ci-dessous, puis validez.</p>
+						<p>Confirmez la réservation en indiquant votre nom et en signant dans le cadre ci-dessous, puis validez.</p>
 						<div id="bloc_canvas">
 							<div id="bloc_canvas_reset">
+								<input type='text' id="nom" placeholder='Nom' required>
 								<canvas id="canvas"></canvas>
 								<canvas id='blank'></canvas>
 								<button id="reset">Reset</button>
@@ -68,7 +88,8 @@
 
 		<div id="resume">
 			<h3 id="titre_resume">Réservations en cours :</h3>
-			<p id='message_reservation'>1 vélo réservé à la station n°<span id="nom_station"></span> pendant encore <span id="minutes"></span> minutes et <span id="secondes"></span> secondes</p>
+			<p id='message_reservation'>1 vélo réservé à la station n°<span id="nom_station"></span> pendant encore <span id="minutes"></span> minutes et <span id="secondes"></span> secondes<br>
+				Réservation au nom de <span id="nom_reservation"></span></p>
 		</div> <!-- #resume -->
 
     <script src="js/markerclusterer.js"></script>
