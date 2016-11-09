@@ -234,6 +234,7 @@ function initMap() {
 				sessionStorage.setItem('timeBefore', timeBefore);
 			} else if (minutes <= 0) {
 				$('#message_reservation').hide().html('<span class="alert">La durée de 20 minutes est écoulée, votre réservation a été annulée</span>').fadeIn();
+				$('#resume').delay(30000).fadeOut();
 				clearInterval(decompte);
 				sessionStorage.setItem('station', '');
 			}
