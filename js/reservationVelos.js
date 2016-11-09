@@ -183,6 +183,17 @@ function initMap() {
 		decalerDroite();
 	});
 
+	//Appel des fonctions lorsqu'on presse les flèches directionnelles du clavier
+	$('body, html').keydown(function(event) {
+		if (event.which == 37) {
+			decalerGauche();
+			event.preventDefault();
+		} else if (event.which == 39) {
+			decalerDroite();
+			event.preventDefault();
+		}
+	});
+
 	// Appel des fonctions lorsqu'on simule une navigation avec les doigts
 	$('#bloc_photos').on('swipeleft', function() {
 		decalerDroite();
