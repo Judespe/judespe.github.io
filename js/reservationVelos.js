@@ -358,6 +358,11 @@ function initMap() {
 		// Affichage message d'erreur si pas de nom renseigné et pas de signature dans le canvas
 		if ((canvasJS.toDataURL() == blankCanvas.toDataURL()) || !(nomReservation)) {
 			$('#erreur').fadeIn().delay(5000).fadeOut();
+
+			var offsetErreur = $('#erreur').offset().top;
+			$('html, body').animate({scrollTop: (offsetErreur)}, 1000);
+			return false;
+
 		} 
 		// Validation de la réservation, affichage de la réservation dans la section "résumé" et lancement du timer de 20 minutes
 		else {
@@ -372,6 +377,7 @@ function initMap() {
 			//$('#storage_data').hide();
 			$('#message_reservation').hide();
 			$('#erreur').hide();
+			$('#bloc_infos_station').fadeOut();
 			$('#signature').fadeOut();
 			clearCanvas();
 			$('#nom_station').text(nomStationRecup);
@@ -389,7 +395,7 @@ function initMap() {
 			sessionStorage.setItem('station', stationReservation);
 
 			var offsetResume = $('#resume').offset().top;
-			$('html, body').animate({scrollTop: offsetResume}, 1000);
+			$('html, body').animate({scrollTop: (offsetResume + 20)}, 1000);
 			return false;
 		}
 	});
