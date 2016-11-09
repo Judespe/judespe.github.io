@@ -80,10 +80,7 @@ header {
 	#slogan {
 		width: 70%;
 		font-size: 3.2vw;
-		text-align: -webkit-center;
-	}
-	.command {
-		font-size: 1em;
+		text-align: center;
 	}
 }
 
@@ -112,10 +109,7 @@ header {
 	#slogan {
 		width: 70%;
 		font-size: 1.6em;
-		text-align: -webkit-center;
-	}
-	.command {
-		font-size: 1em;
+		text-align: center;
 	}
 }
 
@@ -143,28 +137,13 @@ header {
 
 	#slogan {
 		font-size: 1.5em;
-		text-align: -webkit-center;
-	}
-
-	.command {
-		font-size: 0.75	em;
+		text-align: center;
 	}
 }
 
 /*///////////////////////////////
 /////// Section Diaporama ///////
 ///////////////////////////////*/
-
-#diaporama {
-	width: 90%;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 40px;
-	margin-bottom: 80px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
 
 #bloc_photos {
 	width: 75%;
@@ -176,6 +155,17 @@ header {
 }
 
 @media screen and (min-width: 769px) {
+
+	#diaporama {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 40px;
+		margin-bottom: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 
 	.description_photo {
 		position: absolute;
@@ -191,10 +181,25 @@ header {
 		background-color: rgba(255, 255, 255, 0.7);
 		display: none;
 	}
+
+	.command {
+		font-size: 1.5em;
+		color: #33cc33;
+	}
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
 
+	#diaporama {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 40px;
+		margin-bottom: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
 	.description_photo {
 		position: absolute;
 		bottom: 0;
@@ -209,10 +214,24 @@ header {
 		background-color: rgba(255, 255, 255, 0.7);
 		display: none;
 	}
+
+	.command {
+		font-size: 1em;
+		color: #33cc33;
+	}
 }
 
 @media screen and (max-width: 480px) {
 
+	#diaporama {
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 40px;
+		margin-bottom: 80px;
+		display: flex;
+		justify-content: space-between;
+	}
 	.description_photo {
 		width: 98%;
 		padding-left: 1%;
@@ -223,8 +242,17 @@ header {
 		text-align: center;
 		font-family: 'PT Sans', sans-serif;
 		font-size: 1em;
-		background-color: rgba(255, 255, 255, 0.7);
+		background-color: rgba(241, 241, 241, 0.55);
 		display: none;
+	}
+
+	#command_left, #command_right {
+		margin-top: 40px;
+	}
+
+	.command {
+		font-size: 0.75em;
+		color: #33cc33;
 	}
 }
 
@@ -297,6 +325,7 @@ img {
 		font-weight: bold;
 		border: none;
 		padding: 10px;
+		background-color: gainsboro;
 		margin-top: 10px;
 	}
 }
@@ -377,6 +406,7 @@ img {
 		font-family: 'PT Sans', sans-serif;
 		font-size: 1em;
 		font-weight: bold;
+		background-color: gainsboro;
 		border: none;
 		padding: 10px;
 	}
@@ -405,6 +435,7 @@ img {
 		font-weight: bold;
 		border: none;
 		padding: 10px;
+		background-color: gainsboro;
 	}
 }
 
@@ -443,6 +474,7 @@ img {
 		font-size: 1em;
 		font-weight: bold;
 		border: none;
+		background-color: gainsboro;
 		padding: 10px;
 	}
 
@@ -470,6 +502,7 @@ img {
 		font-weight: bold;
 		border: none;
 		padding: 10px;
+		background-color: gainsboro;
 		margin-top: 10px;
 	}
 }
@@ -526,6 +559,7 @@ input {
 #reset {
 	color: black;
 	border: 1px solid whitesmoke;
+	background-color: gainsboro;
 }
 
 #erreur {
@@ -561,6 +595,41 @@ input {
 	text-decoration: underline;
 }
 
-.border {
-	border: 1px solid black;
+/*//////////////////////////////////////
+//////////////// Footer ////////////////
+//////////////////////////////////////*/
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#bloc_icones_reseaux {
+	width: 200px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.icone_reseaux_sociaux {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	color: white;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#ico1 {
+	background-color: #cc0066;
+}
+
+#ico2 {
+	background-color: #ffff00;
+}
+
+#ico3 {
+	background-color: #33cc33;
 }
