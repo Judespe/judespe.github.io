@@ -174,12 +174,22 @@ function initMap() {
 			});
 	}
 
+	// Appel des fonctions lorsqu'on clique sur les commandes latérales
 	$('.cmd_left').click(function() {
 		decalerGauche();
 	});
 
 	$('.cmd_right').click(function() {
 		decalerDroite();
+	});
+
+	// Appel des fonctions lorsqu'on simule une navigation avec les doigts
+	$('#bloc_photos').on('swipeleft', function() {
+		decalerDroite();
+	});
+
+	$('#bloc_photos').on('swiperight', function() {
+		decalerGauche();
 	});
 
 	/////////////////////////////////////////

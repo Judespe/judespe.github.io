@@ -1,13 +1,6 @@
-@font-face {
-    font-family: 'Comicrelief';
-    src: url('fonts/comicrelief/ComicRelief-webfont.eot') format('eot'),
-         url('fonts/comicrelief/ComicRelief-webfont.woff') format('woff'),
-         url('fonts/comicrelief/ComicRelief-webfont.ttf') format('truetype'),
-         url('fonts/comicrelief/ComicRelief-webfont.svg') format('svg');
-}
-
 body {
-	background-color: gainsboro;
+	background-color: #EFEFEF;
+	margin: 0px;
 }
 
 a {
@@ -16,25 +9,32 @@ a {
 }
 
 h4, legend, p {
-	/*font-family: 'Comicrelief', serif;*/
 	font-family: 'PT Sans', sans-serif;
 }
 
-#bandeau {
-	width: 90%;
-	padding-left: 5%;
-	padding-right: 5%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
+/*///////////////////////////////
+//////////// Header /////////////
+///////////////////////////////*/
 
-#logo {
-	width: 10%;
-	min-width: 80px;
+header {
+	background-color: 
 }
 
 @media screen and (min-width: 769px) {
+
+	#bandeau {
+		width: 90%;
+		padding-left: 5%;
+		padding-right: 5%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	#logo {
+		width: 20%;
+		min-width: 150px;
+	}
 
 	#slogan {
 		width: 70%;
@@ -42,9 +42,26 @@ h4, legend, p {
 		font-size: 3.2vw;
 		text-align: -webkit-center;
 	}
+	.command {
+		font-size: 1em;
+	}
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
+
+	#bandeau {
+		width: 90%;
+		padding-left: 5%;
+		padding-right: 5%;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	#logo {
+		width: 20%;
+		min-width: 150px;
+	}
 
 	#slogan {
 		width: 70%;
@@ -52,15 +69,36 @@ h4, legend, p {
 		font-size: 1.6em;
 		text-align: -webkit-center;
 	}
+	.command {
+		font-size: 1em;
+	}
 }
 
 @media screen and (max-width: 480px) {
 
+	#bandeau {
+		width: 96%;
+		padding-left: 2%;
+		padding-right: 2%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	#logo {
+		width: 20%;
+		min-width: 150px;
+		margin-bottom: 20px;
+	}
+
 	#slogan {
-		width: 70%;
 		font-family: 'PT Sans', sans-serif;
 		font-size: 1.2em;
 		text-align: -webkit-center;
+	}
+
+	.command {
+		font-size: 0.75	em;
 	}
 }
 
