@@ -175,12 +175,14 @@ function initMap() {
 	}
 
 	// Appel des fonctions lorsqu'on clique sur les commandes latérales
-	$('.cmd_left').click(function() {
+	$('.cmd_left').click(function(event) {
 		decalerGauche();
+		event.preventDefault();
 	});
 
-	$('.cmd_right').click(function() {
+	$('.cmd_right').click(function(event) {
 		decalerDroite();
+		event.preventDefault();
 	});
 
 	//Appel des fonctions lorsqu'on presse les flèches directionnelles du clavier
@@ -195,12 +197,11 @@ function initMap() {
 	});
 
 	// Appel des fonctions lorsqu'on simule une navigation avec les doigts
-	$('#bloc_photos').on('swipeleft', function() {
-		decalerDroite();
-	});
+	$('#bloc_photos').on('swipeleft', decalerDroite);
 
-	$('#bloc_photos').on('swiperight', function() {
+	$('#bloc_photos').on('swiperight', function(event) {
 		decalerGauche();
+		$(this).trigger('click');
 	});
 
 	/////////////////////////////////////////
