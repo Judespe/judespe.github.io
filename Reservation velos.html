@@ -1,71 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 	<head>
 
 		<meta charset="utf-8" />
-		<title>Réservation en ligne de vélos à Paris</title>
+		<meta name="viewport" content="width=device-width">
+		<title>MYVELIB : Réservez en ligne votre vélo Vélib</title>
+
+		<!-- Twitter Card data -->
+
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@myvelib">
+		<meta name="twitter:title" content="MYVELIB : Réservez en ligne votre vélo Vélib">
+		<meta name="twitter:description" content="Site de réservation de vélos Vélib en ligne">
+		<meta name="twitter:creator" content="@myvelib_admin">
+		<meta name="twitter:image" content="http://www.myvelib.fr/logo.png">
+
+		<!-- Open Graph data -->
+
+		<meta property="og:title" content="MYVELIB : Réservez en ligne votre vélo Vélib"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="http://www.myvelib.fr/"/>
+		<meta property="og:image" content="http://www.myvelib.fr/logo.png"/>
+		<meta property="og:description" content="Site de réservation de vélos Vélib en ligne"/>
 
 		<link rel="stylesheet" type="text/css" href="style.css">
+
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 	
 		<script src="https://use.fontawesome.com/73cbe01232.js"></script>
 
 	</head>
 
-	<body>
+	<body itemscope itemtype="http://schema.org/Website">
 
 		<header class=''>
 
 			<div id="bandeau">
-				<img src="images/logo_velib.png" id='logo' class='border'>
-				<div>Cherchez... Trouvez... Réservez !!</div>
-			</div>
-
-			<div id="diaporama" class="">
-				<div><a href="#"><i class="fa fa-angle-left fa-4x command cmd_left" aria-hidden="true"></i></a></div>
-				<div id="bloc_photos" class='border'>
-					<div id="img1" class="diaporama_elt position_1_init"><img src="images/velib2.jpg" class=''></div>
-					<div id="img2" class="diaporama_elt position_2_init"><img src="images/velib3.jpg"></div>
-					<div id="img3" class="diaporama_elt position_3_init border"><img src="images/velib1.jpg"></div>
-					<div id="img4" class="diaporama_elt position_4_init"><img src="images/velib3.jpg"></div>
-					<div id="img5" class="diaporama_elt position_5_init"><img src="images/velib2.jpg"></div>
-				</div>
-				<div><a href="#"><i class="fa fa-angle-right fa-4x command cmd_right" aria-hidden="true"></i></a></div>
-			</div>
-
-			<!-- <div id='test_perspective'>
-         <div class="cube pers250">
-          <div class="face front border">1</div>
-          <div class="face back">2</div>
-          <div class="face right">3</div>
-          <div class="face left">4</div>
-          <div class="face top">5</div>
-          <div class="face bottom">6</div>
-       </div>
-     </div> -->
+				<img src="images/logo_myvelib.png" id='logo' alt='logo'>
+				<h2 id="slogan" itemprop="description"><span id="slogan1">Besoin d'un vélo ?</span> <span id="slogan2">Cherchez...</span> <span id="slogan3">Trouvez...</span> <span id="slogan4">Réservez !!!</span></h2>
+			</div> <!-- #bandeau -->
 
 		</header>
 
-		<div id="carte_details">
+		<section>
+			<div id="diaporama" class="">
+				<div id='command_left' class='command'>
+					<a href="javascript:">
+						<i class="fa fa-angle-left fa-4x cmd_left" aria-hidden="true">
+						</i>
+					</a>
+				</div> <!-- .command -->
+				<div id="bloc_photos" class=''>
+					<div id="img1" class="active firstImage">
+						<img src="images/velib1.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Besoin d'aller d'un point A à un point B ?</div>
+					</div>
+					<div id="img2" class="">
+						<img src="images/velib2.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Et par un si beau temps, rien de tel que de prendre le vélo</div>
+					</div>
+					<div id="img3" class="">
+						<img src="images/velib3.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Seulement lorsque vous vous rendez à votre station Vélib...</div>
+					</div>
+					<div id="img4" class="">
+						<img src="images/velib4.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Pour éviter cela : rien de plus simple ! Avec <span itemprop="name">MYVELIB</span>, réservez un vélo avant même de partir de chez vous</div>
+					</div>
+					<div id="img5" class="">
+						<img src="images/velib5.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Et récupérez votre vélo dans votre station préférée !!</div>
+					</div>
+					<div id="img6" class="lastImage">
+						<img src="images/velib6.jpg" class='diaporama_elt' alt='slider'>
+						<div class='description_photo'>Bonne balade ! =)</div>
+					</div>
+				</div> <!-- #bloc_photos -->
+				<div id='command_right' class='command'>
+					<a href="javascript:">
+						<i class="fa fa-angle-right fa-4x command cmd_right" aria-hidden="true">
+						</i>
+					</a>
+				</div> <!-- .command -->
+			</div> <!-- #diaporama -->
 
-			<div id="map"></div>
+			<div id="carte_details" class=''>
 
-			<div id="details_station"></div>
-		
-		</div>
+				<div id="map"></div>
 
-		<div id="signature">
-			<canvas id="canvas"></canvas>
-		</div>
+				<div id='container'>
+					<div id="bloc_infos_station" class=''>
+						<h3 id='titre_infos_station'>Détails de la station :</h3>
+						<div id='details'></div>
+						<button id='bouton_reserver'>Réserver</button>
+						
+						<div id="signature" class=''>
+							<p>Confirmez la réservation en indiquant votre nom et en signant dans le cadre ci-dessous, puis validez.</p>
+							<div id="bloc_canvas">
+								<div id="bloc_canvas_reset">
+									<input type='text' id="nom" placeholder='Nom' autocomplete='off'>
+									<canvas id="canvas"></canvas>
+									<canvas id='blank'></canvas>
+									<button id="reset">Reset</button>
+								</div>
+								<button id="bouton_valider">Valider</button>
+							</div>
+						</div> <!-- #signature -->
 
-		<div id="resume">
-			<p>1 vélo réservé à la station <span id="station"></span> pour <span id="timer"></span></p>
-		</div>
+						<div id='erreur' class='alert'>Erreur : vous n'avez pas renseigné votre nom ou signé le formulaire. Veuillez recommencer svp.</div>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM1fhbQ2A0UVLpseVv39x4YBp96bwF4TQ&callback=initMap"></script>
-    <script src="http://opendata.paris.fr/api/records/1.0/search/?dataset=stations-velib-disponibilites-en-temps-reel&rows=1224&facet=banking&facet=bonus&facet=status&facet=contract_name"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-		<script src="reservationVelos.js"></script>
+					</div> <!-- #bloc_infos_station -->
+				</div> <!-- #container -->
+			
+			</div> <!-- #carte_details -->
+
+			<div id="resume">
+				<h3 id="titre_resume">Réservations en cours :</h3>
+				<p id='message_reservation'>1 vélo réservé à la station n°<span id="nom_station"></span> pendant encore <span id="minutes"></span> minutes et <span id="secondes"></span> secondes<br>
+					Réservation au nom de <span id="nom_reservation"></span></p>
+			</div> <!-- #resume -->
+		</section>
+
+		<footer>
+			<div id='bloc_icones_reseaux'>
+				<div id='ico1' class='icone_reseaux_sociaux'>
+					<a href="javascript:"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+				</div>
+				<div id='ico2' class='icone_reseaux_sociaux'>
+					<a href="javascript:"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+				</div>
+				<div id='ico3' class='icone_reseaux_sociaux'>
+					<a href="javascript:"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+				</div>
+			</div> <!-- #bloc_icones_reseaux -->
+		</footer>
+
+    <script src="js/markerclusterer.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>-->
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+		<script src="js/reservationVelos.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM1fhbQ2A0UVLpseVv39x4YBp96bwF4TQ&callback=initMap" async defer></script>
 
 	</body>
 
