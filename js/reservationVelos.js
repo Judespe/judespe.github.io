@@ -125,6 +125,9 @@ function initMap() {
 
 (function($) {
 
+	
+	$.mobile.loading().hide();
+	
 	////////////////////////////////////////
 	/////////// Gestion diaporama //////////
 	////////////////////////////////////////
@@ -308,32 +311,82 @@ function initMap() {
 		context.clearRect(0, 0, canvas.width(), canvas.height());
 	}
 
-	// Activation dessin si clic souris enfoncé
-	canvas.mousedown(function(e) {
-		painting = true;
-
-		// Récupération des coordonnées de la souris
-		cursorX = e.pageX - $(this).offset().left;
-		cursorY = e.pageY - $(this).offset().top;
-	});
-
-	// Arrêt dessin si relâchement clic souris
-	$(this).mouseup(function() {
-		painting = false;
-		started = false;
-	});
-
-	// Gestion du mouvement de la souris sur le canvas
-	canvas.mousemove(function(e) {
+	// Déclaration des fonctions globales du canvas
+	function move(e, mobile, obj) {
 		if(painting) {
-			// Récupération des coordonnées de la souris
-			cursorX = e.pageX - $(this).offset().left;
-			cursorY = e.pageY - $(this).offset().top;
+			if(mobile) {
+				// Evénement mobile
+				var ev = e.originalEvent;
+				e.preventDefault();
 
+				// Récupération des coordonnées du doigt
+				cursorX = (ev.targetTouches[0].pageX - obj.offsetLeft);
+				cursorY = (ev.targetTouches[0].pageY - obj.offsetTop);
+			} else {
+				// Récupération des coordonnées de la souris
+				cursorX = (e.pageX - obj.offsetLeft); //$(this).offset().left;
+				cursorY = (e.pageY - obj.offsetTop); //$(this).offset().top;
+			}
 			//Dessine une ligne avec drawLine()
 			drawLine();
 		}
-	});
+	}
+
+	function moveEnd() {
+		painting = false;
+		started = false;
+	}
+
+	function moveStart(e, mobile) {
+		painting = true;
+
+		if(mobile) {
+			// Evenement mobile
+			var ev = e.originalEvent;
+			e.preventDefault();
+
+			// Récupération des coordonnées du doigt
+			cursorX = (ev.pageX - obj.offsetLeft);
+			cursorY = (ev.pageY - obj.offsetTop);
+		} else {
+			// Récupération des coordonnées de la souris
+			cursorX = (e.pageX - this.offsetLeft);
+			cursorY = (e.pageY - this.offsetTop);
+		}
+	}
+
+	// Appel des fonctions générales avec utilisation de la souris :
+		// Activation dessin si clic souris enfoncé
+		canvas.mousedown(function(e) {
+			moveStart(e, false);
+		});
+
+		// Arrêt dessin si relâchement clic souris
+		$(this).mouseup(function() {
+			moveEnd();
+		});
+
+		// Gestion du mouvement de la souris sur le canvas
+		canvas.mousemove(function(e) {
+			move(e, false, this);
+		});
+
+	// Appel des fonctions générales avec utilisation du doigt : 
+		// Activation dessin si doigt enfoncé
+		canvas.bind('touchstart', function(e) {
+			moveStart(e, true);
+		});
+
+		// Arrêt dessin si relâchement doigt
+		$(this).bind('touchend', function() {
+			moveEnd();
+		});
+
+		// Gestion du mouvement du doigt sur le canvas
+		canvas.bind('touchmove', function(e) {
+			move(e, true, this);
+		});
+
 
 	// Effacement canvas quand clic sur bouton Reset
 	$('#reset').click(function() {
